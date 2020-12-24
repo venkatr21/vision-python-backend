@@ -25,11 +25,19 @@ def wav2text():
 
 def b64towav(input_str):
     decode_string = base64.b64decode(input_str)
-    wav_file = open("temp.m4a", "wb")
+    wav_file = open("temp.3gpp", "wb")
     wav_file.write(decode_string)
     wav_file.close()
+    sound = AudioSegment.from_file("temp.3gpp", format="3gpp")
+    sound.export("temp.wav", format="wav")
 
-@app.route('/stt',methods=['POST'])
+
+@app.route('/',methods=['POST','GET'])
+def temp():
+    return "Reached the server"
+    
+
+@app.route('/stt',methods=['GET','POST'])
 def final():
     input_string = request.form['data']
     b64towav(input_string)
@@ -39,4 +47,4 @@ def final():
     return output
 
 if __name__=="__main__":
-    app.run(host="localhost",port=5000)
+    app.run(host='0.0.0.0',port=8000)
