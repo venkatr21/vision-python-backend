@@ -6,11 +6,6 @@ itsdangerous
 Jinja2
 MarkupSafe
 Werkzeug
-numpy
-scipy
-matplotlib
-pandas
 tpot
-cloudpickle
 azure-cognitiveservices-speech
 pydub
