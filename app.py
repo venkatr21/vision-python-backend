@@ -30,7 +30,7 @@ def languagevalidation(input_str):
     return 'default','def'
     
 def wav2text():
-    speech_config = speechsdk.SpeechConfig(subscription="b84e809f86864f4b8205a37880991a61", region="eastus")
+    speech_config = speechsdk.SpeechConfig(subscription="KEY", region="eastus")
     audio_input = speechsdk.AudioConfig(filename="temp.wav")
     speech_recognizer = speechsdk.SpeechRecognizer(speech_config=speech_config, audio_config=audio_input)
     result = speech_recognizer.recognize_once_async().get()
